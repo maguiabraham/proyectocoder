@@ -8,9 +8,29 @@
     justify-content: space-between;
     background-color: #000000;
 }
+
 .logo{
     padding-left: 10px;
     font-weight: 600;
+}
+.productos ul{
+    display: none;
+    position: absolute;
+    background-color: blue;
+    padding-left: 0;
+    padding: 5px;
+}
+.productos:hover ul{
+    display: block;
+}
+.menu .productos{
+    list-style: none;
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;;
+    align-items: center;
 }
 .menu a{
     padding: 10px;
@@ -18,7 +38,13 @@
     color: #ffffff;
 }
 .menu a:hover{
-    font-weight: 600;
+    color: cornflowerblue;
     transition: all .2s;
     
+}
+.productos .{
+    list-style: none;
+}
+.productos .categorias{
+    list-style: none;
 }
