@@ -1,4 +1,5 @@
 import React from "react" 
+import CartWidget from "./CartWidget"
 import ".././style.css"
 
 const NavBar = () => {
@@ -14,6 +15,7 @@ const NavBar = () => {
                     </ul>
                 </li>
                 <li style={{listStyle: 'none'}}> <a href="#">info</a> </li>
+                <li style={{listStyle: 'none'}} > <CartWidget /> </li>
             </ul>
         </nav>
     )
