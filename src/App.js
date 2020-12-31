@@ -7,7 +7,7 @@ const App = () => {
     return( //solo puede retornar un elemetno
        <>
        <NavBar/>
-       <ItemListContainer item='Este es el catálogo'/>
+       <ItemListContainer greeting='Este es el catálogo'/>
        </>
     );
 }

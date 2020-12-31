@@ -56,7 +56,7 @@
     list-style: none;
 }
 /*----------------------ITEMLISTCONTAINER-----------------------------*/
-.item{
+.greeting{
     margin: 0;
     font-family: 'Quicksand';
     background-color: rgb(228, 201, 209);
