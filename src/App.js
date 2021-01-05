@@ -15,7 +15,7 @@ export default function App (){
            <>
            <NavBar/>
            <ItemListContainer greeting='Este es el catálogo'/>
-           <ItemCount stock={10} initial={1} />
+           <ItemCount stock={15} initial={1} />
            </>
         );
     
