@@ -63,3 +63,21 @@
     padding: 50px;
     text-align: center;
 }
+/*------------------CONTADOR-------------*/
+.contador{
+    text-align: center;
+    padding: 10px;
+}
+.controles{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+}
+
+.cantidad{
+    padding: 15px;;
+}
+i{
+    padding: 15px;
+}
