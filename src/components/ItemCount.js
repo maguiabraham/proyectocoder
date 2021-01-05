@@ -19,11 +19,9 @@ const ItemCount = ( {stock,initial }) => {
         }
     }
 
-    /*const onAdd = () => {
-       if(stock > initial){
-           aumentarCantidad();
-       }
-    }*/
+    const onAdd = () => {
+       alert('Agregado al Carrito')
+    }
 
     return (
         <div className="contador">
@@ -36,7 +34,9 @@ const ItemCount = ( {stock,initial }) => {
             <button className="botones" onClick={disminuirCantidad} >
                     <i>-</i>
             </button>
-
+        </div>
+        <div>
+            <button onClick={onAdd}><i>Agregar al carrito</i></button>
         </div>
                     
         </div>

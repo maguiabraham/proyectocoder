@@ -49,7 +49,7 @@
     transition: all .2s;
     
 }
-.productos .{
+.productos {
     list-style: none;
 }
 .productos .categorias{
@@ -59,7 +59,7 @@
 .greeting{
     margin: 0;
     font-family: 'Quicksand';
-    background-color: rgb(228, 201, 209);
+    background-color: rgb(255, 219, 230);
     padding: 50px;
     text-align: center;
 }
@@ -67,6 +67,8 @@
 .contador{
     text-align: center;
     padding: 10px;
+    font-family: 'Quicksand';
+    background-color: rgb(255, 219, 230);
 }
 .controles{
     display: flex;
