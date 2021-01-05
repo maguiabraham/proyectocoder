@@ -20,7 +20,10 @@ const ItemCount = ( {stock,initial }) => {
     }
 
     const onAdd = () => {
-       alert(`Agrega ${cantidad}`)
+        if(cantidad>0){
+            alert(`Agrega ${cantidad}`)
+        }
+       
     }
 
     return (
