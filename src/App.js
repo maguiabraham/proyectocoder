@@ -1,7 +1,8 @@
 import React, {useState} from "react"   
 import ItemListContainer from "./components/ItemListContainer"
-import ItemCount from "./components/ItemCount"
 import NavBar from "./components/NavBar"
+import Item from "./components/Item"
+
 
 
 
@@ -15,6 +16,7 @@ export default function App (){
            <>
            <NavBar/>
            <ItemListContainer greeting='Este es el catálogo'/>
+           
            </>
         );
     

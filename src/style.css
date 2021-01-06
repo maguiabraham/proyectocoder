@@ -83,3 +83,15 @@
 i{
     padding: 15px;
 }
+/*-------------------ITEM CARD*-------------*/
+
+.info{
+    margin: 15px;
+    padding: 10px;
+    background-color: blanchedalmond;
+    width: 150px;
+    border-radius: 15px;;
+}
+.info img{
+    border-radius: 10px;;
+}
