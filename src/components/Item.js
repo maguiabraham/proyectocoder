@@ -8,11 +8,12 @@ import ".././style.css"
 
  const Item = ({ id, title, description, price, pictureUrl}) =>{
     return(
-        <div className='product'>
+        <div className='info'>
                 <img src={pictureUrl} alt="" width='150px'/>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <h2>{price}</h2>
+                <h2>${price}</h2>
+                <a href="/itemDetail/">Ver detalle</a>
         </div>
     )
 
