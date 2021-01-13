@@ -30,23 +30,28 @@ const lista = [
 const ItemDetailContainer = () =>{
 
     const [item, setItem] = useState()
-    const {idDetalle} = useParams()
+    const {id} = useParams()
 
+    
     useEffect(()=>{
 
-        const detalle = new Promise((resolve, reject)=>{
-            setTimeout(()=>{
-                const i = lista.find(item = item.id==idDetalle) 
-                resolve(i)
-            }, 2000)
+        let detalle = new Promise((resolve,reject)=>{
+            setTimeout(()=>{resolve(lista)}, 2000)
         })
-        detalle.then(result => setItem(result))
-        detalle.catch(console.log("No se puede ver el detalle"))
-    },[idDetalle])
+
+        detalle
+        .then(result=>{
+                setItem(result.filter(item=>item.id==id)[0])
+        })
+        .catch(err=>console.log('No se pudo cargar'))
+
+    },[id])
+
 
     return(
-        
-        <ItemDetail item={item}/>
+        <div className='detail-container'>
+            <ItemDetail item={item}/>
+        </div>
         
     )
 

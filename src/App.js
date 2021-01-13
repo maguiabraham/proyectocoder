@@ -1,4 +1,5 @@
 import React from "react"   
+import ReactDOM from 'react-dom'
 import ItemListContainer from "./components/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import NavBar from "./components/NavBar"
@@ -30,10 +31,6 @@ const lista = [
        
        ]
     
-
-
-
-
 
 
 export default function App (){
