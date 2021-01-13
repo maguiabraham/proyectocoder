@@ -13,7 +13,6 @@ import ".././style.css"
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <h2>${price}</h2>
-                <a href=" /item/:id">Ver detalle</a>
         </div>
     )
 

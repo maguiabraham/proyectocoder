@@ -5,7 +5,7 @@ import ".././style.css"
 
 
 
-const ItemDetail = (item) =>{
+const ItemDetail = ({item}) =>{
      
     return(
         <div className='info'>

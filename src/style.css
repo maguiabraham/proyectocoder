@@ -58,6 +58,7 @@
 /*----------------------ITEMLISTCONTAINER-----------------------------*/
 .item-container{
     margin: 0;
+    color: grey;
     font-family: 'Quicksand';
     background-color:#EFEFEF;
     padding: 50px;
