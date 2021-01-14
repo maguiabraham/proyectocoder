@@ -25,7 +25,7 @@ const ItemListContainer = ({greeting, arrayItems}) => {
     })
     listado.
     then(result=>{
-            categoria?setItems(result.filter(item=>item.categoria===categoria)): setItems(result)
+            categoria?setItems(result.filter(item=>item.categoria==categoria)): setItems(result)
     })
     .catch((err) =>
         console.log('No se pudo cargar'))
