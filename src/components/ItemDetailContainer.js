@@ -54,11 +54,12 @@ const ItemDetailContainer = () =>{
     },[id])
 
     return(
-        <div className='item-container'>
-            
+        <div className='item-container' >
+            <div className='detail-container'>
             {item
             ? <ItemDetail item={item}/> 
             : <h3>Cargando...</h3>}
+            </div>
 
         </div>
         

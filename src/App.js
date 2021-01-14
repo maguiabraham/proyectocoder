@@ -13,6 +13,7 @@ const lista = [
                 title: 'Cenicero', 
                 description: 'Este es el detalle del cenicero', 
                 price: 200, 
+                categoria: 'ceniceros',
                 pictureUrl: 'https://i.pinimg.com/originals/8a/fc/48/8afc48c94a4713f3024f348a2a2253d9.jpg'
         },
         {
@@ -20,6 +21,7 @@ const lista = [
                title: 'Bandeja', 
                description: 'Este es el detalle de la Bandeja', 
                price: 400, 
+               categoria: 'bandejas',
                pictureUrl: 'https://i.pinimg.com/564x/70/cc/9b/70cc9ba1dd4de26598a7416ea8a9bfa4.jpg'
        },
        {
@@ -27,6 +29,7 @@ const lista = [
                title: 'Joyero', 
                description: 'Este es el detalle del Joyero', 
                price: 600, 
+               categoria: 'accesorios',
                pictureUrl: 'https://i.pinimg.com/564x/b6/d8/9c/b6d89ce13cb0d743ba29b529828b4df3.jpg'
        }
        
@@ -43,8 +46,8 @@ export default function App (){
             <Switch>
 
                 <Route path="/" exact> <ItemListContainer greeting='Este es el catalogo' arrayItems={lista}/>  </Route>
-        
-                <Route path="/item/:id"><ItemDetailContainer/> </Route>
+                <Route path="/category/:categoria"> <ItemListContainer/></Route>
+                <Route path="/item/:id"><ItemDetailContainer/></Route>
 
             </Switch>
         </BrowserRouter>

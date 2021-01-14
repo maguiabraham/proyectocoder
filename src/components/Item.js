@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import ".././style.css"
 
 
@@ -13,6 +14,7 @@ import ".././style.css"
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <h2>${price}</h2>
+                <div className='navlink'><NavLink to={`/item/${id}`}>Abrir Detalle</NavLink></div>
         </div>
     )
 
