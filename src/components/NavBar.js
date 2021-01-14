@@ -10,9 +10,9 @@ const NavBar = () => {
             <ul className= 'menu'>
                 <li className='productos'><a href="#">productos</a>
                     <ul className='categorias'>
-                        <li><NavLink to={`/category/ceniceros`}>Ceniceros</NavLink></li>  
-                        <li><NavLink to={`/category/bandejas`}>Bandejas</NavLink></li>  
-                        <li><NavLink to={`/category/accesorios`}>Accesorios</NavLink></li>
+                        <li><NavLink to="/category/ceniceros">Ceniceros</NavLink></li>  
+                        <li><NavLink to="/category/bandejas">Bandejas</NavLink></li>  
+                        <li><NavLink to="/category/accesorios">Accesorios</NavLink></li>
                     </ul>
                 </li>
                 <li style={{listStyle: 'none'}}> <a href="#">info</a> </li>

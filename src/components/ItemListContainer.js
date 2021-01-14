@@ -25,7 +25,11 @@ const ItemListContainer = ({greeting, arrayItems}) => {
     })
     listado.
     then(result=>{
-            categoria?setItems(result.filter(item=>item.categoria==categoria)): setItems(result)
+        if(categoria){
+            setItems(result.filter(item=>item.categoria===categoria))
+        }else{
+            setItems(result)
+        }
     })
     .catch((err) =>
         console.log('No se pudo cargar'))
@@ -41,7 +45,7 @@ const ItemListContainer = ({greeting, arrayItems}) => {
         <>
         <div className='item-container'>
         <h3>{greeting}</h3>
-        <div className='list'>{items ? <ItemList arrayItems={items}/> : <h3>Cargando...</h3>}</div>
+        <div className='list'> <ItemList arrayItems={items}/></div>
         </div>
         
         </>
