@@ -1,48 +1,52 @@
 import { render } from "@testing-library/react"
+import { Link } from 'react-router-dom'
 import React, { useState } from "react" 
 import ".././style.css"
 
 
-const ItemCount = ( {stock,initial }) => {
+const ItemCount = ( {item, agregar, quitar, contador }) => {
 
-    const [cantidad,setCantidad] = useState(initial)
+    const [ open, setOpen ] = useState(false)
 
-    const aumentarCantidad = () => {
-        if(cantidad < stock){
-            setCantidad(cantidad + 1)
-        }
-    }
-
-    const disminuirCantidad = () => {
-        if(cantidad > 0){
-            setCantidad(cantidad - 1)
-        }
-    }
-
-    const onAdd = () => {
-        if(cantidad>0){
-            alert(`Agrega ${cantidad}`)
-        }
-       
+    function addAndOpen(item, contador){
+        setOpen(true)
     }
 
     return (
         <div className="contador">
-            <p>Stock disponible : {stock}</p>
+            <p>Stock: {item.stock}</p>
         <div className="controles">
-            <button className="botones" onClick={aumentarCantidad} >
+            <button className="botones" onClick={agregar} >
                     <i>+</i>
             </button>
-                <p className="cantidad" >{cantidad}</p>
-            <button className="botones" onClick={disminuirCantidad} >
+                <p className="cantidad" >{contador}</p>
+            <button className="botones" onClick={quitar} >
                     <i>-</i>
             </button>
         </div>
-        <div>
-            <button onClick={onAdd}><i>Agregar al carrito</i></button>
+
+            {!open ? (<div>
+                
+                  <button onClick={ () => addAndOpen(item, contador)}>
+                  <h3>Agregar al carrito </h3>
+                  </button>
+                
+                </div>)
+                :(<div>
+                <Link to="/cart">
+                    <button>
+                    <h3>Terminar la compra</h3>
+                    </button>
+                </Link>
+            </div>)     
+            }
+
+
         </div>
-                    
-        </div>
+
+        
+      
+    
     )
 }
 
