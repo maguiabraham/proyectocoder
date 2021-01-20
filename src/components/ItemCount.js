@@ -4,9 +4,26 @@ import React, { useState } from "react"
 import ".././style.css"
 
 
-const ItemCount = ( {item, agregar, quitar, contador }) => {
+const ItemCount = ( {item, initial, stock}) => {
 
     const [ open, setOpen ] = useState(false)
+    const [ contador, setContador ] = useState(initial)
+
+    function agregar(){
+        if (contador < stock ){
+            setContador(contador+1)
+        }
+    }
+
+    
+    function quitar() {
+        if (contador > initial ){
+            setContador(contador-1)
+        }
+    }
+
+
+
 
     function addAndOpen(item, contador){
         setOpen(true)
