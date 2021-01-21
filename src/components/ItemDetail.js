@@ -5,18 +5,7 @@ import ItemCount from './ItemCount'
 
 
 
-
-
 const ItemDetail = ({item}) =>{
-     
-    
-    
-
-    
- 
-
-
-
     return(
         <div className='info'>
                 <img src={item.pictureUrl} alt="" width='150px'/>

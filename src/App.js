@@ -1,10 +1,11 @@
 import React from "react"   
-import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import ItemListContainer from "./components/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import NavBar from "./components/NavBar"
-import ItemDetail from "./components/ItemDetail"
+import CartProvider from './CartContext';
+
+
 
 const lista = [
         {
@@ -65,16 +66,17 @@ export default function App (){
 
         return( //solo puede retornar un elemento
            <>
-        <BrowserRouter>
-          <NavBar/> 
-            <Switch>
-
+        <CartProvider>
+           <BrowserRouter>
+                <NavBar/> 
+                <Switch>
                 <Route path="/" exact> <ItemListContainer greeting='Este es el catalogo' arrayItems={lista}/>  </Route>
                 <Route path="/category/:categoria"> <ItemListContainer  arrayItems={lista}/></Route>
                 <Route path="/item/:id"><ItemDetailContainer/></Route>
-
-            </Switch>
-        </BrowserRouter>
+                
+                </Switch>
+           </BrowserRouter>
+        </CartProvider>
            </>
         )
     

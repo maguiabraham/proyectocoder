@@ -1,10 +1,13 @@
 import { render } from "@testing-library/react"
+import CartContext  from ".././CartContext";
 import { Link } from 'react-router-dom'
-import React, { useState } from "react" 
+import React, { useState, useContext } from "react" 
 import ".././style.css"
 
 
 const ItemCount = ( {item, initial, stock}) => {
+
+    const { addItem} = useContext(CartContext)
 
     const [ open, setOpen ] = useState(false)
     const [ contador, setContador ] = useState(initial)
@@ -21,8 +24,6 @@ const ItemCount = ( {item, initial, stock}) => {
             setContador(contador-1)
         }
     }
-
-
 
 
     function addAndOpen(item, contador){
