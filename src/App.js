@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import ItemListContainer from "./components/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import NavBar from "./components/NavBar"
-import CartProvider from './CartContext';
+import CartProvider from './CartContext'
+import Cart from './components/Cart'
 
 
 
@@ -73,7 +74,7 @@ export default function App (){
                 <Route path="/" exact> <ItemListContainer greeting='Este es el catalogo' arrayItems={lista}/>  </Route>
                 <Route path="/category/:categoria"> <ItemListContainer  arrayItems={lista}/></Route>
                 <Route path="/item/:id"><ItemDetailContainer/></Route>
-                
+                <Route path="/cart"><Cart/></Route>
                 </Switch>
            </BrowserRouter>
         </CartProvider>

@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react"
-import CartContext  from ".././CartContext";
+import { CartContext } from ".././CartContext";
 import { Link } from 'react-router-dom'
 import React, { useState, useContext } from "react" 
 import ".././style.css"
@@ -7,7 +7,7 @@ import ".././style.css"
 
 const ItemCount = ( {item, initial, stock}) => {
 
-    const { addItem} = useContext(CartContext)
+    const {addItem, cart} = useContext(CartContext)
 
     const [ open, setOpen ] = useState(false)
     const [ contador, setContador ] = useState(initial)
@@ -27,7 +27,9 @@ const ItemCount = ( {item, initial, stock}) => {
 
 
     function addAndOpen(item, contador){
+        addItem(item, contador)
         setOpen(true)
+        console.log(cart);
     }
 
     return (
@@ -45,7 +47,7 @@ const ItemCount = ( {item, initial, stock}) => {
 
             {!open ? (<div>
                 
-                  <button onClick={ () => addAndOpen(item, contador)}>
+                  <button onClick={addAndOpen({item}, {contador})}> //recibe lo que hay en el contador y el item
                   <h3>Agregar al carrito </h3>
                   </button>
                 

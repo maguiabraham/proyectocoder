@@ -1,27 +1,30 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState} from 'react'
 
 
-const CartContext = React.createContext();
+export const CartContext = React.createContext();
 
-const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
     const [cantItems, setCantItems] = useState(0)
     
-    const addItem=({item, cantidad})=>{
-        setCart([
-			...cart,
-			{
-                item: item,
-   				cantidad: cantidad
-			}
-        ])
+    function addItem(product, counter, id) {
+         
+       
+        if (isInCart(id)==false){    
+            const newItem = {
+                id: product.id, 
+                name: product.name, 
+                image: product.image, 
+                price: product.price, 
+                amount: counter }
+           setCart([...cart, newItem]) 
+        } 
     }
 
-
-
+  
     
     const isInCart = id => {  //no acepta duplicados
-        let existe = cart.find(producto => producto.item.id === id)
+        let existe = cart.find(producto => producto.id == id)
         return existe?true:false
     }
     const removeItem = id => {
@@ -35,9 +38,9 @@ const CartProvider = ({ children }) => {
 
   
     return (
-        <CartContext.CartProvider value={{addItem, isInCart, removeItem, clear}}>
+        <CartContext.Provider value={{cart, addItem, isInCart, removeItem, clear}}>
             {children}
-        </CartContext.CartProvider>
+        </CartContext.Provider>
     )
 }
 
