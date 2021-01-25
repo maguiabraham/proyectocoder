@@ -21,7 +21,7 @@ const Cart = () =>{
                 id={product.id} 
                 title={product.title} 
                 price={product.price} 
-                cantidad={product.cantidad} />):<h3>tu carrito esta vacio :( </h3>}
+                cantidad={product.cantidad} />):<h3>tu carrito esta vacio</h3>}
             </div>
 
         </div>

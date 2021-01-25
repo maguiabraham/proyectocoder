@@ -7,25 +7,31 @@ export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
     const [cantItems, setCantItems] = useState(0)
     
-    function addItem(product, counter, id) {
-         
-       
-        if (isInCart(id)==false){    
+    function addItem(product, counter) {
+          if(isInCart(product.id)===true){
+            return product.amount + counter           
+          }else{
             const newItem = {
                 id: product.id, 
-                name: product.name, 
-                image: product.image, 
+                name: product.title, 
+                image: product.pictureUrl, 
                 price: product.price, 
                 amount: counter }
-           setCart([...cart, newItem]) 
-        } 
+           setCart([...cart, newItem]) ; //desp cambio la cantidad
+          }
     }
 
   
     
     const isInCart = id => {  //no acepta duplicados
-        let existe = cart.find(producto => producto.id == id)
-        return existe?true:false
+        const item = cart.find(producto => producto.id === parseInt(id))
+        if (item === undefined){
+            return false
+        }
+        else {
+            return true
+        }
+        
     }
     const removeItem = id => {
         const nuevoCart = cart.filter(producto => producto.item.id !== id)

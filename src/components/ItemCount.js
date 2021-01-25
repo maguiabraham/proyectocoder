@@ -26,7 +26,7 @@ const ItemCount = ( {item, initial, stock}) => {
     }
 
 
-    function addAndOpen(item, contador){
+    function addAndOpen(){
         addItem(item, contador)
         setOpen(true)
         console.log(cart);
@@ -47,16 +47,15 @@ const ItemCount = ( {item, initial, stock}) => {
 
             {!open ? (<div>
                 
-                  <button onClick={addAndOpen({item}, {contador})}> //recibe lo que hay en el contador y el item
+                  <button onClick={addAndOpen}> 
                   <h3>Agregar al carrito </h3>
                   </button>
                 
                 </div>)
                 :(<div>
-                <Link to="/cart">
-                    <button>
-                    <h3>Terminar la compra</h3>
-                    </button>
+                <Link to='/cart'>
+                    
+                   Terminar la compra
                 </Link>
             </div>)     
             }
