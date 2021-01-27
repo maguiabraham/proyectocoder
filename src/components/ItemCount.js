@@ -5,7 +5,7 @@ import React, { useState, useContext } from "react"
 import ".././style.css"
 
 
-const ItemCount = ( {item, initial, stock}) => {
+const ItemCount = ( {item, initial, stock, id}) => {
 
     const {addItem, cart} = useContext(CartContext)
 
@@ -25,12 +25,14 @@ const ItemCount = ( {item, initial, stock}) => {
         }
     }
 
-
     function addAndOpen(){
-        addItem(item, contador)
+        addItem(item, contador, item.id)
         setOpen(true)
         console.log(cart);
+        console.log(item);
     }
+
+    
 
     return (
         <div className="contador">
