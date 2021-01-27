@@ -21,7 +21,6 @@ export const CartProvider = ({ children }) => {
                               cantidad: counter}
             setCart([...cart, newItem]) 
         }
-        console.log(cart);
     }
     const isInCart = id => {  //me fijo si esta para no aceptar duplicados
         const item = cart.find(producto => producto.item.id === parseInt(id))
@@ -36,11 +35,9 @@ export const CartProvider = ({ children }) => {
     const removeItem = id => {
         const nuevoCart = cart.filter(producto => producto.item.id !== id)
         setCart(nuevoCart)
-        console.log(cart);
     }
     const clear = () =>{
         setCart([])
-        console.log(cart);
     }
     
 
