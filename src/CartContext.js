@@ -10,16 +10,21 @@ export const CartProvider = ({ children }) => {
     
     function addItem(product, counter, id) {
         if (isInCart(id)){ //me fijo si esta en el carrito, si esta solo cambia la cantidad
-            const productoExistente = cart.find(p => p.id === id)
-            return productoExistente.cantidad + counter           
+            const productoExistente = cart.find(product => product.item.id === id)
+            productoExistente.cantidad = productoExistente.cantidad + counter           
         } else { //si no esta guardo el nuevo item
-            const newItem = { id: product.id, title: product.title, imagen: product.pictureUrl, price: product.price, cantidad: counter }
+            const newItem = { item : {id: product.id, 
+                              title: product.title, 
+                              imagen: product.pictureUrl, 
+                              price: product.price,}
+                              ,
+                              cantidad: counter}
             setCart([...cart, newItem]) 
         }
         console.log(cart);
     }
     const isInCart = id => {  //me fijo si esta para no aceptar duplicados
-        const item = cart.find(producto => producto.id === parseInt(id))
+        const item = cart.find(producto => producto.item.id === parseInt(id))
         if (item === undefined){
             return false
         }
