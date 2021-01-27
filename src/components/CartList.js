@@ -1,17 +1,19 @@
 import React, { useContext } from 'react'
+import {CartContext} from '.././CartContext'
 import CartItem from './CartItem'
 import ".././style.css"
 
 
-const CartList = (listaCarrito) =>{
+const CartList = () =>{
 
+    const { cart, clear } = useContext(CartContext)
 
     return(
 
 
         <div className='cart-list'>
         {                       
-        listaCarrito.map((product)=>
+        cart.map((product)=>
         <CartItem key={product.item.id} 
                 id={product.item.id} 
                 title={product.item.title} 
