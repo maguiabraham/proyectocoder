@@ -48,13 +48,12 @@ const ItemCount = ( {item, initial, stock, id}) => {
             {!open ? (<div>
                 
                   <button onClick={addAndOpen}> 
-                  <h3>Agregar al carrito </h3>
+                  Agregar al carrito
                   </button>
                 
                 </div>)
                 :(<div>
-                <Link to='/cart'>
-                    
+                <Link to='/:cart'>
                    Terminar la compra
                 </Link>
             </div>)     

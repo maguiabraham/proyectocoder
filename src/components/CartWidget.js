@@ -1,18 +1,26 @@
-import { render } from "@testing-library/react"
-import React, { Component } from "react" 
+import React, { useContext } from 'react';
+import {CartContext} from '.././CartContext'
 import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
-import ".././style.css"
 
-class CartWidget extends Component {
-    render() {
-            return (
-                <div>
-                    <a href="#"><LocalMallIcon/></a>
-                </div>
-            )
-        }
-        
-    }
 
+const CartWidget = () =>{
+
+    const { cart } = useContext(CartContext)
+
+    return (
+        <div className="cartWidget">
+
+
+            { cart.length > 0 ? 
+            (<>
+            <h5 className='widget'>{cart.length} <LocalMallIcon/> </h5>
+            </>)
+            : <LocalMallIcon/>
+            }
+
+
+        </div>
+    )
+}
 export default CartWidget

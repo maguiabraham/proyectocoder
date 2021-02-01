@@ -59,6 +59,12 @@ h1.logo{
 .productos .categorias{
     list-style: none;
 }
+/*-------------CART WIDGET--------------------------*/
+
+
+
+
+
 /*----------------------ITEMLISTCONTAINER-----------------------------*/
 .item-container{
     margin: 0 auto;
@@ -112,4 +118,51 @@ i{
 }
 .info img{
     border-radius: 10px;;
+}
+
+/*------------CART-----------------*/
+
+.carrito{
+    display:flex;
+    justify-content: center;
+    padding: 50px;
+    font-family: 'Quicksand';
+    background-color: #E5E5E5 ;
+    color: grey;
+}
+.boton-borrarcarrito button{
+    background-color: #E5A8C7;
+    padding: 5px;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    margin-top: 3px;
+}
+.boton-borrarcarrito button:hover{
+    background-color: #e167a4;
+}
+/*...........CART ITEM--------------*/
+.cart-item{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 5px;
+}
+.item-imagen{
+    padding: 5px;
+    border-radius: 3px;
+}
+.item-info{
+    padding-top: 3px;
+    color: grey;
+}
+.boton-remove{
+    margin-top: 10px;
+    color:#ca6497;
+}
+.boton-borrarcarrito{
+    border-radius: 3px;
+    padding: 3px;
 }

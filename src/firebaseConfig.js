@@ -11,4 +11,4 @@ const miConfiguracion = {
   }
 
  const app = firebase.initializeApp(miConfiguracion)
- const firestore = firebase.firestore(app)
+ export const firestore = firebase.firestore(app)

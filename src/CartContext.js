@@ -6,7 +6,8 @@ export const CartContext = React.createContext();
 export const CartProvider = ({ children }) => {
     const [ cart, setCart ] = useState([])
     
-
+    
+    
     
     function addItem(product, counter, id) {
         if (isInCart(id)){ //me fijo si esta en el carrito, si esta solo cambia la cantidad
@@ -15,11 +16,11 @@ export const CartProvider = ({ children }) => {
         } else { //si no esta guardo el nuevo item
             const newItem = { item : {id: product.id, 
                               title: product.title, 
-                              imagen: product.pictureUrl, 
+                              pictureUrl: product.pictureUrl, 
                               price: product.price,}
                               ,
                               cantidad: counter}
-            setCart([...cart, newItem]) 
+            setCart(cart=>([...cart, newItem])) 
         }
     }
     const isInCart = id => {  //me fijo si esta para no aceptar duplicados

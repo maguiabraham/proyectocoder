@@ -17,7 +17,11 @@ const NavBar = () => {
                 </li>
                 <li style={{listStyle: 'none'}}> <a href="#">info</a> </li>
                 
-                <NavLink to={`/cart`}><li style={{listStyle: 'none'}} > <CartWidget /> </li></NavLink>
+                <NavLink to={`/cart`}>
+                    <li style={{listStyle: 'none'}} > 
+                    <CartWidget /> 
+                    </li>
+                </NavLink>
             </ul>
         </nav>
     )

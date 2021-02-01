@@ -74,7 +74,7 @@ export default function App (){
                 <Route path="/" exact> <ItemListContainer greeting='Este es el catalogo' arrayItems={lista}/>  </Route>
                 <Route path="/category/:categoria"> <ItemListContainer  arrayItems={lista}/></Route>
                 <Route path="/item/:id"><ItemDetailContainer/></Route>
-                <Route path="/cart"><Cart/></Route>
+                <Route path="/:cart"><Cart/></Route>
                 </Switch>
            </BrowserRouter>
         </CartProvider>
