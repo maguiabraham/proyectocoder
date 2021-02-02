@@ -2,7 +2,7 @@ import React , { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemList from './ItemList'
 import ".././style.css"
-import {firestore} from ".././firebaseConfig"
+//import {firestore} from ".././firebaseConfig"
 
 
 
@@ -14,34 +14,22 @@ import {firestore} from ".././firebaseConfig"
 const ItemListContainer = ({greeting, arrayItems}) => {
 
 
-    const [ items, setItems ] = useState([])
-    const {id} = useParams()
+    const [items, setItems] = useState([])
+    const {categoria} = useParams()
 
     useEffect(()=>{ 
         
-        if(id){
-            const baseDatos = firestore
-            const collection = baseDatos.collection('items')
-            const query = collection.where('categoryId', "==", id).get()
-
-            query
-            .then((result) =>{
-                setItems(result.docs.map(item => ({id: item.id, ...item.data()})))
-            })
-            .catch((error) => {
-                console.log('No se puede cargar el catalogo');
-            })
-        }else{
-            setItems(items)
-        }
-
-    },[id, items])
+    //promise
+    let listado = new Promise((resolve, reject)=>{
+        setTimeout(()=>{resolve(arrayItems)}, 2000) //recibe una funcion y el tiempo
+    })
+    listado.
+    then(result => categoria?setItems(result.filter(item=>item.categoria==categoria)): setItems(result) // ese resultado va a items
+    )
+    .catch((err) =>
+        console.log('No se pudo cargar'))
+    },[categoria])
     
-
-
-
-
-
 
     return(
         <>

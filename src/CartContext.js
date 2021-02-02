@@ -38,7 +38,7 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         var t = 0
         const totals = cart.map( product => product.item.price * product.cantidad)
-        totals.map( p => t = t + p)
+        totals.map( product => t = t + product)
         setTotal(t)
         const cartCantidad = cart.length
         setCantidadTotal(cartCantidad)

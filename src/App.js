@@ -5,11 +5,11 @@ import ItemDetailContainer from "./components/ItemDetailContainer"
 import NavBar from "./components/NavBar"
 import CartProvider from './CartContext'
 import Cart from './components/Cart'
-import {firestore} from "./firebaseConfig"
+//import {firestore} from "./firebaseConfig"
 
 
 
-/*const lista = [
+const lista = [
         {
                 id: 1,
                 title: 'Cenicero', 
@@ -61,13 +61,13 @@ import {firestore} from "./firebaseConfig"
                 initial: 1
     },
        
-       ] */
+       ] 
 
 
 export default function App (){
 
 
-        const [ fireBaseItems, setFireBaseItems ] = useState([])
+        /*const [ fireBaseItems, setFireBaseItems ] = useState([])
 
         useEffect(() => {
                 const baseDeDatos = firestore
@@ -83,7 +83,7 @@ export default function App (){
                   })
             }, [fireBaseItems])
           
-            console.log(fireBaseItems)
+            console.log(fireBaseItems)*/
 
 
 
@@ -93,9 +93,9 @@ export default function App (){
            <BrowserRouter>
                 <NavBar/> 
                 <Switch>
-                <Route path="/" exact> <ItemListContainer greeting='Este es el catalogo' arrayItems={fireBaseItems}/>  </Route>
-                <Route path="/category/:categoryId"> <ItemListContainer  arrayItems={fireBaseItems}/></Route>
-                <Route path="/item/:id"><ItemDetailContainer/></Route>
+                <Route path="/" exact> <ItemListContainer greeting='Este es el catalogo' arrayItems={lista}/>  </Route>
+                <Route path="/category/:categoria"> <ItemListContainer  arrayItems={lista}/></Route>
+                <Route path="/item/:id"><ItemDetailContainer /></Route>
                 <Route path="/:cart"><Cart/></Route>
                 </Switch>
            </BrowserRouter>
