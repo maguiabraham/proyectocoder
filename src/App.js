@@ -1,14 +1,15 @@
-import React from "react"   
+import React, {useState, useEffect}  from "react"   
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import ItemListContainer from "./components/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import NavBar from "./components/NavBar"
 import CartProvider from './CartContext'
 import Cart from './components/Cart'
+import {firestore} from "./firebaseConfig"
 
 
 
-const lista = [
+/*const lista = [
         {
                 id: 1,
                 title: 'Cenicero', 
@@ -60,10 +61,31 @@ const lista = [
                 initial: 1
     },
        
-       ]
+       ] */
 
 
 export default function App (){
+
+
+        const [ fireBaseItems, setFireBaseItems ] = useState([])
+
+        useEffect(() => {
+                const baseDeDatos = firestore
+                const collection = baseDeDatos.collection('products')
+                const query = collection.get()
+                query
+                  .then((result) => {
+                    setFireBaseItems(result.docs.map(product => ({id: product.id, ...product.data()})))
+                    console.log(fireBaseItems)
+                  })
+                  .catch((error) => {
+                    console.log(error)
+                  })
+            }, [fireBaseItems])
+          
+            console.log(fireBaseItems)
+
+
 
         return( //solo puede retornar un elemento
            <>
@@ -71,8 +93,8 @@ export default function App (){
            <BrowserRouter>
                 <NavBar/> 
                 <Switch>
-                <Route path="/" exact> <ItemListContainer greeting='Este es el catalogo' arrayItems={lista}/>  </Route>
-                <Route path="/category/:categoria"> <ItemListContainer  arrayItems={lista}/></Route>
+                <Route path="/" exact> <ItemListContainer greeting='Este es el catalogo' arrayItems={fireBaseItems}/>  </Route>
+                <Route path="/category/:categoryId"> <ItemListContainer  arrayItems={fireBaseItems}/></Route>
                 <Route path="/item/:id"><ItemDetailContainer/></Route>
                 <Route path="/:cart"><Cart/></Route>
                 </Switch>
