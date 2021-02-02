@@ -7,6 +7,7 @@ import LocalMallIcon from '@material-ui/icons/LocalMall';
 const CartWidget = () =>{
 
     const { cantidadTotal } = useContext(CartContext)
+    const { calcularCantidad } = useContext(CartContext)
 
     return (
         <div className="cartWidget">
@@ -14,7 +15,7 @@ const CartWidget = () =>{
 
             { cantidadTotal > 0 ? 
             (<>
-            <h5 className='widget'>{cantidadTotal} <LocalMallIcon/> </h5>
+            <h5 className='widget'>{calcularCantidad()} <LocalMallIcon/> </h5>
             </>)
             : <LocalMallIcon/>
             }
