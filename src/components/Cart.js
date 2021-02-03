@@ -8,9 +8,7 @@ import ".././style.css"
 
 const Cart = () =>{
 
-    const { cart, clear, total} = useContext(CartContext)
-
-    /* */
+    const { cart, clear, calcularTotal} = useContext(CartContext)
 
     return(
 
@@ -39,7 +37,7 @@ const Cart = () =>{
         }
         </div>
         <div className='boton-borrarcarrito' >
-            <h4>Precio final: ${total}</h4>
+            <h4>Precio final: ${calcularTotal()}</h4>
             <button  onClick={clear}>X Borrar carrito</button>
         </div>
                </>
