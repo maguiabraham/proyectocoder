@@ -10,7 +10,17 @@ export const CartProvider = ({ children }) => {
     //const [ total, setTotal] = useState([])
     //const [ cantidadTotal, setCantidadTotal] = useState([])
     
-    
+
+    function calcularCantidad(){
+        let t = 0
+        cart.forEach(element => {
+            t = t + element.cantidad
+        })     
+        console.log(t);
+        return t
+    }
+
+
     function addItem(product, counter, id) {
         if (isInCart(id)){ //me fijo si esta en el carrito, si esta solo cambia la cantidad
             const productoExistente = cart.find(product => product.item.id === id)
@@ -22,7 +32,8 @@ export const CartProvider = ({ children }) => {
                               price: product.price,}
                               ,
                               cantidad: counter}
-            setCart(cart=>([...cart, newItem])) 
+            setCart([...cart, newItem]) 
+            
         }
     }
     const isInCart = id => {  //me fijo si esta para no aceptar duplicados
@@ -44,17 +55,7 @@ export const CartProvider = ({ children }) => {
         return t
     }
     
-    function calcularCantidad(){
-        let t = 0
-        cart.forEach(element => {
-            t = t + element.cantidad
-        })     
-        return t
-    }
-
-       
-
-
+   
 
     const removeItem = id => {
         const nuevoCart = cart.filter(producto => producto.item.id !== id)
@@ -64,8 +65,6 @@ export const CartProvider = ({ children }) => {
         setCart([])
     }
     
-
-  
     return (
         <CartContext.Provider value={{cart, addItem, isInCart, removeItem, clear, calcularCantidad, calcularTotal}}>
             {children}
