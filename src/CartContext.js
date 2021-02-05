@@ -11,20 +11,24 @@ export const CartProvider = ({ children }) => {
     //const [ cantidadTotal, setCantidadTotal] = useState([])
     
 
-    function calcularCantidad(){
-        let t = 0
-        cart.forEach(element => {
-            t = t + element.cantidad
-        })     
-        console.log(t);
-        return t
-    }
+    
 
 
     function addItem(product, counter, id) {
         if (isInCart(id)){ //me fijo si esta en el carrito, si esta solo cambia la cantidad
             const productoExistente = cart.find(product => product.item.id === id)
-            productoExistente.cantidad = productoExistente.cantidad + counter           
+            const nuevaCantidad = productoExistente.cantidad + counter
+            const nuevoProducto =  { id: productoExistente.item.id, 
+                                     title: productoExistente.item.title, 
+                                     pictureUrl: productoExistente.item.pictureUrl, 
+                                     price: productoExistente.item.price, 
+                                     cantidad: nuevaCantidad}
+            const cartConExistente = cart.filter(product => product.id != id)
+            const cartConNuevo = [...cartConExistente, nuevoProducto]
+            setCart([cartConNuevo])
+            
+
+                   
         } else { //si no esta guardo el nuevo item
             const newItem = { item : {id: product.id, 
                               title: product.title, 
@@ -36,6 +40,16 @@ export const CartProvider = ({ children }) => {
             
         }
     }
+
+    function calcularCantidad(){
+        let t = 0
+        cart.forEach(element => {
+            t = t + element.cantidad
+        })     
+        console.log(t);
+        return t
+    }
+
     const isInCart = id => {  //me fijo si esta para no aceptar duplicados
         const item = cart.find(producto => producto.item.id === parseInt(id))
         if (item === undefined){
