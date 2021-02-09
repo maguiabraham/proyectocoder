@@ -29,7 +29,7 @@ const ItemCount = ( {item, initial, stock, id}) => {
         addItem(item, contador, item.id)
         setOpen(true)
     }
-    console.log(cart);
+    
     
 
     return (
