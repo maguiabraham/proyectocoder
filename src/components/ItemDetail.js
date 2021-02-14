@@ -9,13 +9,22 @@ import ItemCount from './ItemCount'
 const ItemDetail = ({item}) =>{
 
    
+
+
+
+
+
+
+
+
+    
     return(
         <div className='info'>
                 <img src={item.pictureUrl} alt="" width='150px'/>
                 <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <p>{item.descripcion}</p>
                 <h2>${item.price}</h2>
-                <ItemCount initial={item.initial} stock={item.stock} item={item} id={item.id}/>
+                <ItemCount stock={item.stock} initial="1" item={item} id={item.id}/>
         </div>
     )
 
