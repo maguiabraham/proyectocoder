@@ -56,9 +56,6 @@ const Form = () =>{
             <input onChange={e=>setEmail(e.target.value)}type='email' placeholder='Email' value={email}></input>
             </div>
             <button >Terminar Compra</button>
-
-
-
         </form>
        
        

@@ -7,8 +7,7 @@ export const CartContext = React.createContext();
 export const CartProvider = ({ children }) => {
 
     const [ cart, setCart ] = useState([])
-    //const [ total, setTotal] = useState([])
-    //const [ cantidadTotal, setCantidadTotal] = useState(0)
+    
     
 
 
@@ -86,8 +85,6 @@ function isInCart(id){
         </CartContext.Provider>
     )
 }
-
-
 
 
 export default CartProvider;
