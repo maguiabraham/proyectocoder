@@ -4,6 +4,7 @@ import {CartContext} from '.././CartContext'
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem'
 import ".././style.css"
+import Form from "./Form"
 
 
 const Cart = () =>{
@@ -40,6 +41,7 @@ const Cart = () =>{
             <h4>Precio final: ${calcularTotal()}</h4>
             <button  onClick={clear}>X Borrar carrito</button>
         </div>
+        <Form/>
                </>
             )
             }

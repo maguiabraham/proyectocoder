@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar"
 import CartProvider from './CartContext'
 import Cart from './components/Cart'
 import {firestore} from "./firebaseConfig"
+import Form from "./components/Form"
 
 /*
 
@@ -74,10 +75,12 @@ export default function App (){
            <BrowserRouter>
                 <NavBar/> 
                 <Switch>
+                
                 <Route path="/" exact> <ItemListContainer greeting='Este es el catalogo'/>  </Route>
                 <Route path="/category/:categoryId"> <ItemListContainer  /></Route>
                 <Route path="/item/:id"><ItemDetailContainer /></Route>
                 <Route path="/:cart"><Cart/></Route>
+                
                 </Switch>
            </BrowserRouter>
         </CartProvider>
