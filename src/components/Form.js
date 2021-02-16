@@ -7,11 +7,16 @@ import {firestore} from ".././firebaseConfig"
 const Form = () =>{
 
     const {cart, calcularTotal} = useContext(CartContext)
-
-
     const [nombre,setNombre] = useState('')
     const [telefono,setTelefono] = useState('')
     const [email,setEmail] = useState('')
+    const [compra, setCompra] = useState([])
+    const [id, setId] = useState("")
+
+
+    //chequear datos de nombre, mail y numeros
+
+
 
     const datosDeCompra = (e) => {
         e.prevenDefault()
@@ -23,14 +28,23 @@ const Form = () =>{
             date: firebase.firestore.Timestamp.fromDate(new Date()) ,
             total: calcularTotal()
         }
-        console.log(orden);
+        setCompra(orden)
+
+        const db = firestore
+        const collection = db.collection("orders")
+        collection.add(compra)
+        .then((res)=>{  
+            setId(res.id)
+        })
+        .catch(()=>{})
+        alert('guardado')
     }
 
     return(
 
        <>
       
-        <form onSubmit={datosDeCompra}>
+        <form onSubmit={datosDeCompra} >
              <h2>Datos de compra</h2>
             <div>
             <input onChange={e=>setNombre(e.target.value)} type='text' placeholder='Nombre' value={nombre} ></input>
@@ -41,7 +55,7 @@ const Form = () =>{
             <div>
             <input onChange={e=>setEmail(e.target.value)}type='email' placeholder='Email' value={email}></input>
             </div>
-            <button>Terminar Compra</button>
+            <button >Terminar Compra</button>
 
 
 

@@ -38,7 +38,8 @@ const Cart = () =>{
         }
         </div>
         <div className='boton-borrarcarrito' >
-            <h4>Precio final: ${calcularTotal()}</h4>
+            <h4>Precio final: </h4>
+            <h4>${calcularTotal()}</h4>
             <button  onClick={clear}>X Borrar carrito</button>
         </div>
         <Form/>
